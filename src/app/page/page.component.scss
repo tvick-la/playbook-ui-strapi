@@ -1,0 +1,113 @@
+.page {
+  background-color: #eef2f6;
+  padding: 2rem 5rem;
+}
+
+.title-card {
+  border: 0;
+  box-shadow: 0 0 5px lightgray;
+
+  .title-card-body {
+    padding: 1.2rem 1.6rem;
+  }
+
+  h1 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+  }
+}
+
+.content-block {
+  margin: 1rem;
+  border: 0;
+  box-shadow: 0 0 5px lightgray;
+
+  .card-body {
+    padding: 0;
+
+    .content-block-title {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 1rem;
+      margin: 0;
+    }
+
+    hr {
+      margin: 0;
+    }
+
+    .design-intent-body {
+      padding: 1rem;
+
+      .design-intent-summary {}
+
+      .design-intent-first-principles {
+        background-color: #eef2f6;
+        padding: 1rem;
+        border-radius: 10px;
+
+        markdown ::ng-deep ul{
+          padding-left: 1rem;
+        }
+      }
+    }
+
+    .skills-body {
+      padding: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      overflow-x: auto;
+      gap: 1rem;
+    }
+
+    .role {
+      min-width: 500px;
+      max-width: 600px;
+
+      .role-icon {
+        width: 100%;
+      }
+
+      h3 {
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+      }
+    }
+
+    .artifacts-body {
+      padding: 1rem;
+      display: flex;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      gap: 1rem;
+
+      .artifact {
+        min-width: 300px;
+        max-width: 400px;
+
+        .artifact-file-type {
+          font-weight: 600;
+          color: darkgray;
+          margin-bottom: 5px;
+
+          i {
+            margin-right: 5px;
+          }
+        }
+
+        .artifact-file-name {
+          font-size: 16px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+

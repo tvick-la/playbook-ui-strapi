@@ -1,0 +1,69 @@
+<div *ngIf="page" class="page">
+  <div class="container">
+    <div class="card title-card">
+      <div class="card-body title-card-body">
+        <h1>{{page.title}}</h1>
+      </div>
+    </div>
+
+    <div *ngFor="let contentBlock of page.contentBlocks" class="card content-block">
+
+      <div *ngIf="contentBlock.type == 'design-intent'" class="card-body design-intent">
+        <h2 class="content-block-title">{{contentBlock.title}}</h2>
+        <hr/>
+        <div class="row design-intent-body">
+          <div class="col design-intent-summary">
+            <p>{{contentBlock.summary}}</p>
+          </div>
+          <div class="col">
+            <div class="design-intent-first-principles">
+              <markdown ngPreserveWhitespaces class="markdown">
+                {{contentBlock.firstPrinciples}}
+              </markdown>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="contentBlock.type == 'skills'" class="card-body skills">
+        <h2 class="content-block-title">{{contentBlock.title}}</h2>
+        <hr/>
+        <div class="skills-body">
+          <div *ngFor="let role of contentBlock.roles" class="row role">
+            <div class="col-3">
+              <img class="role-icon" *ngIf="role.roleType.toLowerCase()=='delivery lead'" src="/assets/delivery_lead.png"/>
+              <img class="role-icon" *ngIf="role.roleType.toLowerCase()=='product analyst'" src="/assets/product_analyst.png"/>
+              <h3>{{role.roleType}}</h3>
+            </div>
+            <div class="col-9">
+              <p>{{role.roleDescription}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="contentBlock.type == 'artifacts-for-reference'" class="card-body artifacts">
+        <h2 class="content-block-title">{{contentBlock.title}}</h2>
+        <hr/>
+        <div class="artifacts-body">
+          <div *ngFor="let artifact of contentBlock.artifacts" class="artifact">
+
+            <p class="artifact-file-type">
+              <i *ngIf="artifact.fileType == 'application/pdf'" class="bi bi-filetype-pdf"></i>
+              <i *ngIf="artifact.fileType == 'image/png'" class="bi bi-filetype-png"></i>
+              <span>{{artifact.fileType}}</span>
+            </p>
+            <h3 class="artifact-file-name">{{artifact.title}}</h3>
+            <p class="artifact-file-description">{{artifact.description}}</p>
+
+            <a href="http://localhost:1337{{artifact.fileUrl}}" target="blank">View</a>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="contentBlock.type == 'unknown'">
+        <code><pre>{{contentBlock.data}}</pre></code>
+      </div>
+    </div>
+  </div>
+</div>
